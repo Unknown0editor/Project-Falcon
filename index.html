@@ -16,6 +16,14 @@
                 margin: 0;
                 padding: 0;
             }
+            .terminal{
+                text-align: center;
+            }
+            .password-text{
+                margin-right: 10px;
+                display: inline-block;
+                vertical-align: middle;
+            }
             password input{
                 background-color:#000;
                 color: #0f0;
@@ -53,7 +61,7 @@
          <script> 
             function checkPassword(){
                 var enteredPassword = document.getElementById("passwordInput").value;
-                if(enteredPassword === "FBI"){
+                if(enteredPassword === "password"){
                     window.location.href = "black_screen.html";
                 }else{
                     alert("incorrect password");
