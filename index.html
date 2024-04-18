@@ -15,6 +15,7 @@
                 flex-direction: column;
                 align-items: center;
                 height: 100vh;
+                cursor: url('old_time_cursor.cur'), default; 
             }
             .text{
                 font-size: 20px;
@@ -54,6 +55,28 @@
             <h1>Welcome to Project Bald Eagle</h1>
         </div>
         <div class="login"><a href ="password.html">Log in</a></div>
-       
+        <audio id="clickSound" src ="Mouse Click Sound Effect.mp3"></audio>
+       <script>
+        function playClickSoundAndNavigate(event){
+            event.preventDefault();
+            var clickSound = document.getElementById('clickSound');
+            clickSound.currentTime = 0;
+            clickSound.play();
+            setTimeout(function(){
+                window.location.href = event.target.href;
+            }, clickSound.duration * 1000);
+        }
+
+        document.addEventListener('click', function(event){
+            if(event.target.tagName === 'A'){
+                playClickSoundAndNavigate(event);
+            }
+        });
+
+        document.addEventListener('contextmenu', function(event){
+            event.preventDefault();
+            playClickSoundAndNavigate(event);
+        });
+       </script>
     </body>
 </html>

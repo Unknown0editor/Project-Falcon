@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Webpage with PNG</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        color: white; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 220vh;
+        flex-direction: column;
+        position: relative;
+        opacity: 0; /* Initially hide the content */
+        animation: fadeIn 1s forwards; /* Apply fade-in animation */
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px); /* Initial position above */
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0); /* Move to original position */
+        }
+    }
+    .image-container {
+        margin-bottom: 10px; 
+        position: relative; /* Position relative for containing absolutely positioned elements */
+    }
+    img {
+        max-width: 80vw;
+    }
+    .return-text a {
+        font-family: monospace;
+        color: #0f0;
+        align-items: center;
+        margin-top: 10px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .return-text a:hover {
+        color: rgb(255, 255, 255);
+    }
+    .cia-img {
+        position: absolute;
+        top: -30%; /* Position it at the top */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center horizontally */
+        z-index: 1; /* Ensure it's on top of the other image */
+        max-width: 150px; /* Set maximum width */
+    }
+</style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="cuban 1.png" alt="Your Image" />
+        <img class="cia-img" src="cia.png" alt="CIA Image" />
+    </div>
+    <div class="image-container">
+        <img src="cuban 2.png" alt="Your Image" />
+        <div class="return-text"><a href="introduction.html">Return</a></div>
+    </div>
+</body>
+</html>
