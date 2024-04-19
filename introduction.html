@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Webpage</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: -5vh;
+        text-align: center;
+        opacity: 0; /* Initially hide the content */
+        animation: fadeIn 0.5s forwards; /* Apply fade-in animation */
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px); /* Initial position above */
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0); /* Move to original position */
+        }
+    }
+    img {
+        max-width: 30%;
+        max-height: 70vh;
+        margin-bottom: -1vh;
+    }
+    p {
+        color: #0f0;
+        text-align: center;
+        font-size: 18px;
+        font-family: monospace;
+        animation: slideIn 0.5s forwards; /* Apply slide-in animation */
+    }
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px); /* Initial position above */
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0); /* Move to original position */
+        }
+    }
+    a {
+        color: #0f0;
+        font-family: monospace;
+        font-size: 14px;
+        text-decoration: none;
+        margin-top: 5vh;
+        margin-bottom: 10vh;
+        transition: color .3s, font-size .3s;
+        animation: fadeInDelay 0.5s forwards; /* Apply fade-in with delay */
+    }
+    @keyframes fadeInDelay {
+        from {
+            opacity: 0;
+            transform: translateY(-20px); /* Initial position above */
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0); /* Move to original position */
+        }
+    }
+    a:hover {
+        color: white;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+    <div class="content">
+        <img src="CIA.png" alt="Your Image">
+        <p>TOP SECRET DOCUMENTS</p>
+        <a href="cuban.html" onclick="playClickSoundAndNavigate(event)">Cuban Missile Crisis - Dobrynin</a>
+        <br>
+        <a href="kennedy.html" onclick="playClickSoundAndNavigate(event)">Kennedy Assassination</a>
+        <br>
+        <a href="pentagon.html" onclick="playClickSoundAndNavigate(event)">Pentagon Papers - Vietnam and US (Part I) </a>
+        <br>
+        <a href="bomb.html" onclick="playClickSoundAndNavigate(event)">H-Bomb</a>
+    </div>
+
+    <audio id="clickSound" src="Mouse Click Sound Effect.mp3"></audio>
+
+    <script>
+        function playClickSoundAndNavigate(event) {
+            event.preventDefault(); // Prevent default navigation behavior
+
+            var clickSound = document.getElementById('clickSound');
+            clickSound.currentTime = 0;
+            clickSound.play();
+
+            setTimeout(function() {
+                window.location.href = event.target.href; // Navigate after sound duration
+            }, clickSound.duration * 1000);
+        }
+    </script>
+</body>
+</html>
